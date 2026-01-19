@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body { width: 300px; padding: 15px; font-family: 'Segoe UI', sans-serif; background: #f8f9fa; }
+    h3 { margin: 0 0 15px 0; color: #333; font-size: 16px; border-bottom: 2px solid #0275d8; padding-bottom: 5px; }
+    .config-group { margin-bottom: 12px; background: white; padding: 10px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+    label { font-size: 11px; display: block; margin-bottom: 4px; color: #666; font-weight: bold; }
+    select, input { width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box; font-size: 12px; }
+    button { 
+      width: 100%; padding: 12px; background: #0275d8; color: white; 
+      border: none; border-radius: 6px; cursor: pointer; font-weight: bold; margin-top: 5px;
+    }
+    button:hover { background: #01549b; }
+    .status { font-size: 11px; margin-top: 10px; color: #888; text-align: center; height: 30px; }
+    #keyDisplay { font-size: 10px; color: green; margin-top: 5px; display: none; }
+  </style>
+</head>
+<body>
+  <h3>Adobe Stock Auto Metadata Generator</h3>
+  
+ <div id="apiSelectorGroup" class="config-group">
+  <label>Pilih File API Key (.txt):</label>
+  <input type="file" id="fileInput" accept=".txt">
+ </div>
+
+ <div id="keyStoredGroup" style="display:none; text-align: right; margin-bottom: 10px;">
+   <span style="font-size: 10px; color: green; float: left;">API Key Saved</span>
+   <a href="#" id="changeKeyBtn" style="font-size: 10px; color: #0275d8; text-decoration: none;">Change File</a>
+ </div>
+
+  <div class="config-group">
+    <label>Choose AI Model:</label>
+    <select id="modelSelect">
+      <option value="gemini-2.5-flash-lite">Gemini 2.5 Flash Lite</option>
+      <option value="gemini-2.5-flash-lite-preview-09-2025">Gemini 2.5 Flash Lite Preview</option>
+      <option value="gemini-2.5-flash">Gemini 2.5 Flash</option>
+    </select>
+  </div>
+
+  <div class="config-group">
+    <label>Virtual Click Delay (second):</label>
+    <input type="number" id="delayInput" value="2" min="1">
+  </div>
+
+  <button id="runBtn">GENERATE</button>
+  <div id="status" class="status">Choose .txt file contain API key</div>
+
+  <p id="version">Version 1.0.0</p>
+  
+  <script src="popup.js"></script>
+</body>
+</html>
